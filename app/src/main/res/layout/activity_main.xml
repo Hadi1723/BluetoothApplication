@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#6D10A6">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstrainedLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#6D10A6"
+        android:visibility="visible"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/discoverButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="620dp"
+            android:text="Discover Devices"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints" />
+
+        <ListView
+            android:id="@+id/list_available_devices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:id="@+id/llGameInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_200"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btn_enable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:text="Enable Bluetooth"
+                android:visibility="visible" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#673AB7"
+                app:cardBackgroundColor="#E91E63"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:id="@+id/tvNumPaired"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#E91E63"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Paired: 0"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#FFFFFF" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/scanCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="#E91E63"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:id="@+id/scanActive"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Discovery: Inactive"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#FFFFFF" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <!--
+    <?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+
+            <Button
+                android:id="@+id/btn_send_msg"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="Enable Bluetooth" />
+
+        </RelativeLayout>
+
+    </RelativeLayout> -->

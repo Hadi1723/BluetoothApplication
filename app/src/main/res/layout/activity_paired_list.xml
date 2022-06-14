@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#1548DC">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstrainedLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#6D10A6"
+        tools:context=".ListPaired">
+
+        <ListView
+            android:id="@+id/ListofPaired"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_goneMarginTop="100dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:background="#FFFFFF"
+            android:iconifiedByDefault="false"
+            android:queryBackground="@android:color/transparent"
+            android:queryHint="Enter name of device"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:visibility="gone" />
+
+        <!--
+        <TextView
+            android:id="@+id/ListofPaired"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text=""
+            tools:layout_editor_absoluteY="381dp" /> -->
+
+        <LinearLayout
+            android:id="@+id/llGameInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_200"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#673AB7"
+                app:cardBackgroundColor="#E91E63"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:id="@+id/tvNumPaired"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FF9800"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Paired: 0"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#FFFFFF" />
+            </androidx.cardview.widget.CardView>
+
+            <!--
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="#E91E63"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:id="@+id/tvNumAvailable"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Available: 0"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#FFFFFF" />
+            </androidx.cardview.widget.CardView> -->
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

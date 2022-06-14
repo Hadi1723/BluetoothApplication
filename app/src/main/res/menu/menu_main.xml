@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/off_enable"
+        android:icon="@drawable/_56___device_bluetooth_off_disabled_connection_signal_icon_512"
+        android:title="Off_enable"
+        app:showAsAction="always" />
+    <!--
+    <item
+        android:id="@+id/available_list"
+        android:title="View Available Devices"
+        app:showAsAction="never" /> -->
+    <item
+        android:id="@+id/paired_list"
+        android:title="View Paired Devices"
+        app:showAsAction="never" />
+</menu>
