@@ -3,6 +3,8 @@ package com.example.myapplication
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
 import android.content.Context
@@ -16,6 +18,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
+import com.example.myapplication.MyBroadCastReceiver
 import com.example.myapplication.databinding.ActivityMainBinding
 
 
@@ -112,7 +115,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         var itemSelected = item.itemId
 
-        if (bluetoothAdapter.isEnabled) {
+        if (bluetoothAdapter.isEnabled && binding.scanActive.text != "Discovery: Active") {
 
             when(itemSelected) {
                 R.id.paired_list -> {
@@ -154,7 +157,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         } else {
-            Toast.makeText(this, "Enable Bluetooth before viewing other pages", Toast.LENGTH_LONG).show()
+            if (!bluetoothAdapter.isEnabled) {
+                Toast.makeText(this, "Enable Bluetooth before viewing other pages", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "Device is still discovering", Toast.LENGTH_LONG).show()
+            }
         }
 
         return super.onOptionsItemSelected(item)
@@ -186,6 +193,13 @@ class MainActivity : AppCompatActivity() {
                 if (resultCode == 120) {
                     binding.discoverButton.visibility = View.GONE
                     binding.scanActive.text = "Discovery: Active"
+
+                    var time = 120
+
+                    var i = Intent(applicationContext, MyBroadCastReceiver::class.java)
+                    var pendentIntent = PendingIntent.getBroadcast(applicationContext, 111, i, 0)
+                    var am: AlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                    am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (time * 1000), pendentIntent)
                 } else {
                     Toast.makeText(this, "Device still not discoverable.", Toast.LENGTH_LONG).show()
                 }
