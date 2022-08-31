@@ -1,1 +1,2 @@
 # BluetoothApplication
+Here, I created an android app that asks users to enable their Bluetooth (if not already enabled) to view number of paired devices. Once they enabled Bluetooth, they can click on a button to make their device discoverable to other devices for 120 seconds. The users can also view the list of paired devices on another page of the app and use the search bar to find a specific device from the list.
